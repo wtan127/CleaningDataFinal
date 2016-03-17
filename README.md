@@ -1,6 +1,9 @@
 # CleaningDataFinal
 Final project for Getting and Cleaning Data Coursera course
 
+The UCI HAR Dataset contains data on 30 subjects performing 6 tasks: Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, and Laying with an Samsung phone attached at the waist. Data is collected from the accelerometer and gyroscope: 3-axial linear acceleration, and 3-axial angular velocity.
+The dataset has been split randomly such at 70% are in a training set and 30% are in a test set.
+
 The UCI HAR Dataset is downloaded into the working directory. The folder contains the subfolder "test", "train", and the following text files: activity_labels, features, features_info, and README
 
 # From the README.txt file:
@@ -53,3 +56,67 @@ total_acc_x_train <- read.table("./UCI HAR Dataset/train/Inertial Signals/total_
 total_acc_y_train <- read.table("./UCI HAR Dataset/train/Inertial Signals/total_acc_y_train.txt")
 total_acc_z_train <- read.table("./UCI HAR Dataset/train/Inertial Signals/total_acc_z_train.txt")
 
+##Criterias for assignment
+### Step 1. Merges the training and the test sets to create one data set.
+x_train has the 7352 rows with the 561 feature columns (labels in "features")
+subject_train labels each of the subjects in the 7352 rows with numbers 1:30
+y_train gives 7352 rows with the activity labelled 1:6
+
+**Merge subject_train & subject_test; y_train & y_test, x_train & x_test**
+subject <- rbind(subject_train, subject_test)
+activity <- rbind(y_train, y_test)
+data <- rbind(x_train, x_test)
+
+### Step 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+
+The measurements are:
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+and within the angle()
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
+
+Mean and Stv are mean() and std() in the following format:
+tBodyAcc-mean()-X
+angle(X,gravityMean)
+
+findmean <- grepl("mean", features[ ,2])
+findstd <- grepl("std", features[ ,2])
+find <- findstd|findmean
+Returns logical vectors. the vector find combines the two
+
+newdata <- data[ ,find == TRUE]
+
+### Step 3. Uses descriptive activity names to name the activities in the data set
+** change activity data to include the name of the actual activity**
+NOT DONE YET NOT DONE YET
+
+### Step 4. Appropriately labels the data set with descriptive variable names.
+
+newlabels <- features[find == TRUE, ]
+names(newdata) <- newlabels[ ,2]
+** merge in subject and activity data frames**
+NOT DONE YET NOT DONE YET
+
+### Step 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+NOT DONE YET NOT DONE YET
