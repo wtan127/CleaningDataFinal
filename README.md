@@ -63,6 +63,8 @@ subject_train labels each of the subjects in the 7352 rows with numbers 1:30
 y_train gives 7352 rows with the activity labelled 1:6
 
 **Merge subject_train & subject_test; y_train & y_test, x_train & x_test**
+USE ARRANGE(JOIN()) and make sure that there is train and test still included
+
 subject <- rbind(subject_train, subject_test)
 activity <- rbind(y_train, y_test)
 data <- rbind(x_train, x_test)
@@ -108,7 +110,7 @@ newdata <- data[ ,find == TRUE]
 
 ### Step 3. Uses descriptive activity names to name the activities in the data set
 ** change activity data to include the name of the actual activity**
-NOT DONE YET NOT DONE YET
+USE GROUPING AND CHAINING?
 
 ### Step 4. Appropriately labels the data set with descriptive variable names.
 
@@ -118,5 +120,5 @@ names(newdata) <- newlabels[ ,2]
 NOT DONE YET NOT DONE YET
 
 ### Step 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
+USE DDPLY OR SAPPLY
 NOT DONE YET NOT DONE YET
