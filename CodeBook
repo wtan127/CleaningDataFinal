@@ -1,0 +1,23 @@
+### CodeBook for Cleaning smartphone data
+
+The UCI HAR Dataset contains data on 30 subjects performing 6 tasks: Walking, Walking Upstairs, Walking Downstairs, Sitting, Standing, and Laying with an Samsung phone attached at the waist. Data is collected from the accelerometer and gyroscope: 3-axial linear acceleration, and 3-axial angular velocity.
+The dataset has been split randomly such at 70% are in a training set and 30% are in a test set.
+
+The UCI HAR Dataset is downloaded into the working directory. The folder contains the subfolder "test", "train", and the following text files: activity_labels, features, features_info, and README
+
+- 'README.txt' TEXT description
+- 'features_info.txt': TEXT description: Shows information about the variables used on the feature vector.
+- 'features.txt': TEXT/Characters List of all features.
+- 'activity_labels.txt': TEXT/Characters Links the class labels with their activity name.
+- 'train/X_train.txt': Numeric Training set.
+- 'train/y_train.txt': Numeric Training labels.
+- 'test/X_test.txt': Numeric Test set.
+- 'test/y_test.txt': Numeric Test labels.
+
+The data contains the following:
+- 'train/subject_train.txt': Numeric Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
+
